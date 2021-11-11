@@ -4,15 +4,14 @@
   <%- include('../../partials/navbar.ejs') %>
   <div class="container">
     <hr />
-    <h2>Categorias</h2>
-    <a class="btn btn-success" href="/admin/categories/new">Criar Categoria</a>
+    <h2>Usuários de Colaboradores</h2>
+    <a class="btn btn-success" href="/admin/colaborador/new">Criar Usuário</a>
     <hr />
     <table class="table table-bordered">
       <thead>
         <tr>
           <th>ID</th>
-          <th>Título</th>
-          <th>Slug</th>
+          <th>Usuário</th>
           <th>Ações</th>
         </tr>
       </thead>
@@ -21,13 +20,13 @@
         <tr>
           <th><%- category.id %></th>
           <th><%- category.title %></th>
-          <th><%- category.slug %></th>
           <th>
             <a
-              href="/admin/categories/edit/<%= category.id %>"
+              href="/admin/colaborador/edit/<%= category.id %>"
               class="btn btn-warning"
-              >Editar</a
             >
+              Editar
+            </a>
             <form
               action="/categories/delete"
               method="POST"
@@ -50,7 +49,7 @@
 <script>
   function confirmDelete(event, form) {
     event.preventDefault();
-    let decision = confirm('Você realmente quer deletar essa categoria?');
+    let decision = confirm('Você realmente quer deletar esse usuário?');
     if (decision) {
       form.submit();
     }

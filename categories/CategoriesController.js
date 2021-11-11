@@ -7,8 +7,8 @@ router.get('/categories', (req, res) => {
   res.send('Categorias');
 });
 
-router.get('/admin/categories/new', (req, res) => {
-  res.render('admin/categories/new');
+router.get('/admin/colaborador/new', (req, res) => {
+  res.render('admin/colaborador/new');
 });
 
 router.post('/categories/save', (req, res) => {
@@ -18,16 +18,16 @@ router.post('/categories/save', (req, res) => {
       title,
       slug: slugify(title),
     }).then(() => {
-      res.redirect('/admin/categories');
+      res.redirect('/admin/colaborador');
     });
   } else {
-    res.redirect('/admin/categories/new');
+    res.redirect('/admin/colaborador/new');
   }
 });
 
-router.get('/admin/categories', (req, res) => {
+router.get('/admin/colaborador', (req, res) => {
   Category.findAll().then((categories) => {
-    res.render('admin/categories/index', { categories });
+    res.render('admin/colaborador/index', { categories });
   });
 });
 
@@ -40,30 +40,30 @@ router.post('/categories/delete', (req, res) => {
         id,
       },
     }).then(() => {
-      res.redirect('/admin/categories');
+      res.redirect('/admin/colaborador');
     });
   } else {
-    res.redirect('/admin/categories');
+    res.redirect('/admin/colaborador');
   }
 });
 
-router.get('/admin/categories/edit/:id', (req, res) => {
+router.get('/admin/colaborador/edit/:id', (req, res) => {
   let id = req.params.id;
 
   if (isNaN(id)) {
-    res.redirect('/admin/categories');
+    res.redirect('/admin/colaborador');
   }
 
   Category.findByPk(id)
     .then((category) => {
       if (category != undefined) {
-        res.render('admin/categories/edit', { category });
+        res.render('admin/colaborador/edit', { category });
       } else {
-        res.redirect('/admin/categories');
+        res.redirect('/admin/colaborador');
       }
     })
     .catch((error) => {
-      res.redirect('/admin/categories');
+      res.redirect('/admin/colaborador');
     });
 });
 
@@ -73,7 +73,7 @@ router.post('/categories/update', (req, res) => {
 
   Category.update({ title, slug: slugify(title) }, { where: { id: id } }).then(
     () => {
-      res.redirect('/admin/categories');
+      res.redirect('/admin/colaborador');
     },
   );
 });
