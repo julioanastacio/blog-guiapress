@@ -4,7 +4,7 @@
   "description": "Um blog com painel administrativo.",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon index.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Julio Anastacio",
   "license": "ISC",
@@ -15,7 +15,7 @@
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "mysql2": "^2.2.5",
-    "sequelize": "^6.9.0",
+    "sequelize": "^6.6.2",
     "slugify": "^1.5.3"
   }
 }
