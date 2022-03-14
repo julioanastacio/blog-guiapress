@@ -6,7 +6,7 @@
     <br />
     <div class="card">
       <div class="card-header">
-        <h2>Edição de Usuário</h2>
+        <h2>Edição de Categoria</h2>
       </div>
       <div class="card-body">
         <form action="/categories/update" method="POST">
@@ -14,16 +14,8 @@
             class="form-control"
             type="text"
             name="title"
-            placeholder="Defina o usuário do colaborador"
+            placeholder="Defina o título da categoria"
             value="<%= category.title %>"
-          />
-          <br />
-
-          <input
-            class="form-control"
-            name="password"
-            type="password"
-            placeholder="Defina a senha do colaborador"
           />
           <input type="hidden" name="id" value="<%= category.id %>" />
           <br />
